@@ -9,7 +9,7 @@ const Home = () => {
           <p>🌈</p>
           <p>SnapCV</p>
         </div>
-        <a href="https:github.com/siddhantsingh1230/" className="ghub">
+        <a href="https://github.com/siddhantsingh1230/" className="ghub">
           <i className="ri-github-fill"></i>
         </a>
       </div>
