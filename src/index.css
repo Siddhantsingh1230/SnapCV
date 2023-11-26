@@ -244,6 +244,7 @@ footer i {
   font-family: Gilroy;
   font-size: 2rem;
   padding-bottom: 1rem;
+  word-wrap: break-word;
 }
 .summarytitle {
   font-family: Gilroy;
@@ -272,6 +273,7 @@ footer i {
   border-radius: 2rem;
   padding: 0.5rem 1.5rem;
   cursor: pointer;
+  border: none;
 }
 
 .loading {
