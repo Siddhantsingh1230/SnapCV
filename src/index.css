@@ -40,18 +40,18 @@ html {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-inline: 3rem;
-  padding-block: 2rem;
+  padding-inline: 3.5rem;
+  padding-block: 3rem;
 }
 .nav .icon {
   display: flex;
   gap: 0.35rem;
   font-weight: 600;
-  font-size: 1.6rem;
+  font-size: 2.3rem;
   color: rgb(0, 0, 0);
 }
 .nav .icon p:nth-child(1) {
-  font-size: 1.3rem;
+  font-size: 1.8rem;
 }
 .nav .icon p:nth-child(2) {
   cursor: pointer;
@@ -70,7 +70,7 @@ html {
   scale: 0.95;
 }
 .nav a i {
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   color: rgb(255, 255, 255);
   transition: all ease 0.2s;
 }
@@ -84,8 +84,8 @@ html {
   align-items: center;
 }
 .upload .upload-body {
-  width: 25rem;
-  height: 20rem;
+  width: 37rem;
+  height: 27rem;
   display: flex;
   flex-direction: column;
   border-radius: 0.35rem;
@@ -104,7 +104,7 @@ html {
   cursor: pointer;
   font-family: GilroyR;
   font-weight: 600;
-  font-size: 0.85rem;
+  font-size: 1.15rem;
   background: #000;
   border-radius: 2rem;
   padding: 0.5rem 1.5rem;
@@ -113,8 +113,8 @@ html {
   position: relative;
   width: 50px;
   height: 50px;
-  scale: 0.25;
-  margin-bottom: 1rem;
+  scale: 0.45;
+  margin-bottom: 3rem;
 }
 .radiate_container .circle {
   position: absolute;
@@ -172,7 +172,7 @@ html {
 
 .upload p {
   font-family: GilroyR;
-  font-size: 0.65rem;
+  font-size: 0.95rem;
   letter-spacing: 0.05rem;
   font-weight: bold;
   color: #3e3e3e;
@@ -222,7 +222,7 @@ footer {
   display: -ms-flexbox;
   display: flex;
   padding: 20px 0;
-  font-size: 12px;
+  font-size: 1rem;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
@@ -239,35 +239,34 @@ footer i {
   width: 100%;
   padding-inline: 3rem;
   padding-block: 2rem;
-  
 }
-.filename{
+.filename {
   font-family: Gilroy;
   font-size: 2rem;
   padding-bottom: 1rem;
 }
-.summarytitle{
+.summarytitle {
   font-family: Gilroy;
   font-size: 1.5rem;
   padding-bottom: 1rem;
 }
-.summarybody{
+.summarybody {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 0.86rem;
   padding-bottom: 2rem;
   color: #6a6a6a;
   word-wrap: break-word;
 }
-.sentiment{
+.sentiment {
   font-family: Gilroy;
   font-size: 1rem;
 }
-.title{
+.title {
   display: flex;
   justify-content: space-between;
 }
 
-.toggle{
+.toggle {
   background: #000;
   color: white;
   border-radius: 2rem;
@@ -281,6 +280,27 @@ footer i {
     padding-inline: 1.5rem;
     padding-block: 2rem;
   }
+
+  .nav .icon {
+    display: flex;
+    gap: 0.35rem;
+    font-weight: 600;
+    font-size: 1.8rem;
+    color: rgb(0, 0, 0);
+  }
+  .nav .icon p:nth-child(1) {
+    font-size: 1.5rem;
+  }
+  .nav a i {
+    font-size: 1.4rem;
+  }
+  .radiate_container {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    scale: 0.25;
+    margin-bottom: 1rem;
+  }
   .upload .upload-body {
     width: 20rem;
     height: 15rem;
@@ -292,15 +312,49 @@ footer i {
     border: 1px solid red;
     gap: 1rem;
   }
-  .title{
+  .title {
     flex-direction: column;
   }
-  .sentiment{
+  .sentiment {
     padding-bottom: 1rem;
   }
-  .filename{
+  .filename {
     font-size: 1.5rem;
     font-weight: 600;
   }
+  .upload p {
+    font-family: GilroyR;
+    font-size: 0.65rem;
+    letter-spacing: 0.05rem;
+    font-weight: bold;
+    color: #3e3e3e;
+  }
+  .upload label {
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    font-family: GilroyR;
+    font-weight: 600;
+    font-size: 0.85rem;
+    background: #000;
+    border-radius: 2rem;
+    padding: 0.5rem 1.5rem;
+  }
+  footer {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 20px 0;
+    font-size: 12px;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+  footer i {
+    color: red;
+    font-size: 1rem;
+  }
 }
-
