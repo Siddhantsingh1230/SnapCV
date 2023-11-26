@@ -6,7 +6,7 @@ const Upload = () => {
   const [progress, setProgress] = useState(0);
   const [toggle, setToggle] = useState(false);
   const [data,setData] = useState({});
-
+  const [loading,setLoading] = useState(false);
   const handleDrop = (event) => {
     event.preventDefault();
     setIsDragOver(false);
@@ -60,7 +60,7 @@ const Upload = () => {
     formData.append("file", file);
 
     const xhr = new XMLHttpRequest();
-
+    setLoading(true);
     xhr.upload.onprogress = function (event) {
       if (event.lengthComputable) {
         const percentComplete = (event.loaded / event.total) * 100;
@@ -76,10 +76,14 @@ const Upload = () => {
             // console.log(jsonResponse);
             setData(jsonResponse) // Adjust the property based on your server's response
             setToggle(true)
+            setLoading(false);
           } catch (error) {
             console.error("Error parsing JSON response:", error);
+            setLoading(false);
+            alert("Error 500. "+error);
           }
         } else {
+          setLoading(false);
           alert("File upload failed.");
         }
         setProgress(0);
@@ -92,7 +96,7 @@ const Upload = () => {
 
   return (
     <>
-      {!toggle ? (
+      {!loading?!toggle ? (
         <form className="upload" encType="multipart/form-data">
           <div
             className="upload-body"
@@ -130,7 +134,7 @@ const Upload = () => {
         </form>
       ) : (
         <Summary toggle={setToggle} data={data} />
-      )}
+      ):<div className="loading"><p>Loading...</p></div>}
     </>
   );
 };
