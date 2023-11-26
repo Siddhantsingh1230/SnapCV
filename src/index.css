@@ -1,13 +1,306 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+body,
+html {
+  height: 100%;
+  width: 100%;
+  background: rgb(255, 255, 255);
+}
+#root {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+/* fonts */
+
+@font-face {
+  font-family: "Gilroy";
+  src: url("./assets/fonts/Gilroy-Medium.ttf");
+}
+@font-face {
+  font-family: "GilroyR";
+  src: url("./assets/fonts/Gilroy-Regular.ttf");
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: Gilroy;
 }
+
+/* Navbar */
+.main {
+  width: 100%;
+  flex: 1;
+}
+.nav {
+  height: 2rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: 3rem;
+  padding-block: 2rem;
+}
+.nav .icon {
+  display: flex;
+  gap: 0.35rem;
+  font-weight: 600;
+  font-size: 1.6rem;
+  color: rgb(0, 0, 0);
+}
+.nav .icon p:nth-child(1) {
+  font-size: 1.3rem;
+}
+.nav .icon p:nth-child(2) {
+  cursor: pointer;
+}
+.nav a {
+  text-decoration: none;
+  background: rgb(0, 0, 0);
+  padding: 0.15rem 0.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.45rem;
+  transition: all ease-out 0.2s;
+}
+.nav a:hover {
+  scale: 0.95;
+}
+.nav a i {
+  font-size: 1.4rem;
+  color: rgb(255, 255, 255);
+  transition: all ease 0.2s;
+}
+
+.upload {
+  width: 100%;
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.upload .upload-body {
+  width: 25rem;
+  height: 20rem;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.35rem;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid red;
+  position: relative;
+  gap: 1rem;
+  overflow: hidden;
+}
+.upload input {
+  display: none;
+}
+.upload label {
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  font-family: GilroyR;
+  font-weight: 600;
+  font-size: 0.85rem;
+  background: #000;
+  border-radius: 2rem;
+  padding: 0.5rem 1.5rem;
+}
+.radiate_container {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  scale: 0.25;
+  margin-bottom: 1rem;
+}
+.radiate_container .circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border: 5px solid rgb(0, 0, 0);
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+.radiate_container .circle:nth-child(1) {
+  -moz-animation: grow 3s 0.5s infinite ease-out;
+  -webkit-animation: grow 3s 0.5s infinite ease-out;
+  animation: grow 3s 0.5s infinite ease-out;
+}
+.radiate_container .circle:nth-child(2) {
+  -moz-animation: grow 3s 1s infinite ease-out;
+  -webkit-animation: grow 3s 1s infinite ease-out;
+  animation: grow 3s 1s infinite ease-out;
+}
+.radiate_container .circle:nth-child(3) {
+  -moz-animation: grow 3s 1.5s infinite ease-out;
+  -webkit-animation: grow 3s 1.5s infinite ease-out;
+  animation: grow 3s 1.5s infinite ease-out;
+}
+.container .circle:nth-child(4) {
+  -moz-animation: grow 3s 2s infinite ease-out;
+  -webkit-animation: grow 3s 2s infinite ease-out;
+  animation: grow 3s 2s infinite ease-out;
+}
+@-moz-keyframes grow {
+  100% {
+    padding: 120px;
+    border-color: rgb(0, 0, 0);
+    margin: -120px 0 0 -120px;
+    opacity: 0;
+  }
+}
+@-webkit-keyframes grow {
+  100% {
+    padding: 120px;
+    border-color: rgb(0, 0, 0);
+    margin: -120px 0 0 -120px;
+    opacity: 0;
+  }
+}
+@keyframes grow {
+  100% {
+    padding: 120px;
+    border-color: rgb(0, 0, 0);
+    margin: -120px 0 0 -120px;
+    opacity: 0;
+  }
+}
+
+.upload p {
+  font-family: GilroyR;
+  font-size: 0.65rem;
+  letter-spacing: 0.05rem;
+  font-weight: bold;
+  color: #3e3e3e;
+}
+
+#blrone {
+  position: fixed;
+  right: 0%;
+  bottom: 50%;
+  width: 60px;
+  height: 60px;
+  opacity: 0.3;
+  background-color: rebeccapurple;
+}
+
+#blrtwo {
+  position: fixed;
+  left: 2%;
+  bottom: 70%;
+  width: 60px;
+  height: 60px;
+  opacity: 0.4;
+  -webkit-filter: blur(35px) saturate(10);
+  filter: blur(35px) saturate(10);
+  background-color: rgb(255, 194, 114);
+}
+#blrthree {
+  position: fixed;
+  left: 25%;
+  bottom: -5%;
+  width: 60px;
+  height: 60px;
+  opacity: 0.4;
+  -webkit-filter: blur(35px) saturate(10);
+  filter: blur(35px) saturate(10);
+  background-color: rgb(114, 255, 133);
+}
+
+.blr {
+  -webkit-filter: blur(25px) saturate(10);
+  filter: blur(25px) saturate(10);
+}
+
+footer {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 20px 0;
+  font-size: 12px;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+footer i {
+  color: red;
+  font-size: 1rem;
+}
+
+.summary {
+  width: 100%;
+  padding-inline: 3rem;
+  padding-block: 2rem;
+  
+}
+.filename{
+  font-family: Gilroy;
+  font-size: 2rem;
+  padding-bottom: 1rem;
+}
+.summarytitle{
+  font-family: Gilroy;
+  font-size: 1.5rem;
+  padding-bottom: 1rem;
+}
+.summarybody{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.86rem;
+  padding-bottom: 2rem;
+  color: #6a6a6a;
+  word-wrap: break-word;
+}
+.sentiment{
+  font-family: Gilroy;
+  font-size: 1rem;
+}
+.title{
+  display: flex;
+  justify-content: space-between;
+}
+
+.toggle{
+  background: #000;
+  color: white;
+  border-radius: 2rem;
+  padding: 0.5rem 1.5rem;
+  cursor: pointer;
+}
+
+/* for Mobile screens */
+@media (max-width: 767px) {
+  .nav {
+    padding-inline: 1.5rem;
+    padding-block: 2rem;
+  }
+  .upload .upload-body {
+    width: 20rem;
+    height: 15rem;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0.35rem;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid red;
+    gap: 1rem;
+  }
+  .title{
+    flex-direction: column;
+  }
+  .sentiment{
+    padding-bottom: 1rem;
+  }
+  .filename{
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+}
+
