@@ -86,7 +86,7 @@ const Upload = () => {
       }
     };
 
-    xhr.open("POST", "https://snap-cv-backend.vercel.app/upload", true);
+    xhr.open("POST", "https://snapcv.onrender.com/upload", true);
     xhr.send(formData);
   };
 
