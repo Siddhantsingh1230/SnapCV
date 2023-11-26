@@ -5,14 +5,12 @@ const Upload = () => {
   const [isDragOver, setIsDragOver] = useState(false);
   const [progress, setProgress] = useState(0);
   const [toggle, setToggle] = useState(false);
-  const [data,setData] = useState({});
-  const [loading,setLoading] = useState(false);
+  const [data, setData] = useState({});
+  const [loading, setLoading] = useState(false);
   const handleDrop = (event) => {
     event.preventDefault();
     setIsDragOver(false);
-
-    const files = event.dataTransfer.files;
-    handleFiles(files);
+    handleFileChange(event, true);
   };
 
   const handleDragOver = (event) => {
@@ -48,8 +46,13 @@ const Upload = () => {
   };
 
   // file upload progress and submit
-  const handleFileChange = (event) => {
-    const file = event.target.files[0];
+  const handleFileChange = (event, dropped = false) => {
+    let file;
+    if (dropped) {
+      file = event.dataTransfer.files[0];
+    } else {
+      file = event.target.files[0];
+    }
     handleFiles(file);
     if (!file) {
       alert("Please select a file to upload.");
@@ -74,13 +77,13 @@ const Upload = () => {
           try {
             const jsonResponse = JSON.parse(xhr.responseText);
             // console.log(jsonResponse);
-            setData(jsonResponse) // Adjust the property based on your server's response
-            setToggle(true)
+            setData(jsonResponse); // Adjust the property based on your server's response
+            setToggle(true);
             setLoading(false);
           } catch (error) {
             console.error("Error parsing JSON response:", error);
             setLoading(false);
-            alert("Error 500. "+error);
+            alert("Error 500. " + error);
           }
         } else {
           setLoading(false);
@@ -96,45 +99,51 @@ const Upload = () => {
 
   return (
     <>
-      {!loading?!toggle ? (
-        <form className="upload" encType="multipart/form-data">
-          <div
-            className="upload-body"
-            style={styles.dropZone}
-            onDrop={handleDrop}
-            onDragOver={handleDragOver}
-            onDragLeave={handleDragLeave}
-          >
-            <div className="radiate_container">
-              <div className="circle"></div>
-              <div className="circle"></div>
-              <div className="circle"></div>
-              <div className="circle"></div>
-            </div>
-            <p>Drag pdf to upload , or</p>
-            <label htmlFor="inp">Choose File</label>
-            <input
-              id="inp"
-              type="file"
-              name="file"
-              onChange={handleFileChange}
-            />
-
+      {!loading ? (
+        !toggle ? (
+          <form className="upload" encType="multipart/form-data">
             <div
-              style={{
-                width: `${progress}%`,
-                background: "#4CAF50",
-                height: "5px",
-                position: "absolute",
-                bottom: "0",
-                borderRadius: "0.35rem",
-              }}
-            ></div>
-          </div>
-        </form>
+              className="upload-body"
+              style={styles.dropZone}
+              onDrop={handleDrop}
+              onDragOver={handleDragOver}
+              onDragLeave={handleDragLeave}
+            >
+              <div className="radiate_container">
+                <div className="circle"></div>
+                <div className="circle"></div>
+                <div className="circle"></div>
+                <div className="circle"></div>
+              </div>
+              <p>Drag pdf to upload , or</p>
+              <label htmlFor="inp">Choose File</label>
+              <input
+                id="inp"
+                type="file"
+                name="file"
+                onChange={handleFileChange}
+              />
+
+              <div
+                style={{
+                  width: `${progress}%`,
+                  background: "#4CAF50",
+                  height: "5px",
+                  position: "absolute",
+                  bottom: "0",
+                  borderRadius: "0.35rem",
+                }}
+              ></div>
+            </div>
+          </form>
+        ) : (
+          <Summary toggle={setToggle} data={data} />
+        )
       ) : (
-        <Summary toggle={setToggle} data={data} />
-      ):<div className="loading"><p>Loading...</p></div>}
+        <div className="loading">
+          <p>Loading...</p>
+        </div>
+      )}
     </>
   );
 };
